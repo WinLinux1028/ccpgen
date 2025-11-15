@@ -115,12 +115,7 @@
 <div class="app">
   <aside>
     <h2 style="font-size:14px;margin:4px 0 10px;">設定</h2>
-
-    <!-- 背景画像アップロード欄は削除し、固定読み込みに切替 -->
-    <div class="muted" style="margin-bottom:14px;">
-      背景画像は <code>background.png</code>（同じフォルダ）を自動使用します。
-    </div>
-
+    
     <div class="field">
       <label>メインテキスト</label>
       <textarea id="text" placeholder="“日本は再び軍国主義の過ちを繰り返すつもりなのか…”"></textarea>
@@ -235,6 +230,9 @@
     "日本は再び軍国主義の過ちを繰り返すつもりなのか\n\n" +
     "再び中国人民とアジア人民を敵に回すつもりなのか\n\n" +
     "戦後の国際秩序を覆そうとしているのか";
+
+  els.footerText.value =
+    "中国外交部報道官 2025年11月13日"
 
   function getFontFamily() {
     if (els.fontFamily.value === 'serif') {
@@ -373,3 +371,4 @@
 </script>
 </body>
 </html>
+
