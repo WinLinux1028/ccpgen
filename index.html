@@ -116,10 +116,9 @@
   <aside>
     <h2 style="font-size:14px;margin:4px 0 10px;">設定</h2>
 
-    <div class="field">
-      <label>背景画像（さっきのロゴ入り画像）</label>
-      <input id="bgFile" type="file" accept="image/*">
-      <div class="muted">アップロードするとキャンバスサイズが画像に合わせて変わります</div>
+    <!-- 背景画像アップロード欄は削除し、固定読み込みに切替 -->
+    <div class="muted" style="margin-bottom:14px;">
+      背景画像は <code>background.png</code>（同じフォルダ）を自動使用します。
     </div>
 
     <div class="field">
@@ -196,16 +195,15 @@
   <main>
     <header>中共プロパガンダ・テキストジェネレーター</header>
     <div class="canvas-wrap">
-      <canvas id="cv" width="1080" height="1920"></canvas>
+      <canvas id="cv"></canvas>
     </div>
-    <footer>背景画像を読み込んでからテキストを調整してください。</footer>
+    <footer>背景画像 background.png を使用中。</footer>
   </main>
 </div>
 
 <script>
   const els = {
     cv: document.getElementById('cv'),
-    bgFile: document.getElementById('bgFile'),
     text: document.getElementById('text'),
     fontSize: document.getElementById('fontSize'),
     lineHeight: document.getElementById('lineHeight'),
@@ -221,32 +219,22 @@
     saveBtn: document.getElementById('saveBtn')
   };
 
-  let bgImg = null;
+  // 背景画像を固定読み込み
+  let bgImg = new Image();
+  bgImg.onload = () => {
+    // 背景画像に合わせてキャンバスサイズを設定
+    els.cv.width = bgImg.width;
+    els.cv.height = bgImg.height;
+    render();
+  };
+  // index.html と同じディレクトリに置いた background.png を読み込む
+  bgImg.src = "./background.png";
 
   // 初期テキスト
   els.text.value =
     "日本は再び軍国主義の過ちを繰り返すつもりなのか\n\n" +
     "再び中国人民とアジア人民を敵に回すつもりなのか\n\n" +
     "戦後の国際秩序を覆そうとしているのか";
-
-  // 背景画像読み込み
-  els.bgFile.addEventListener('change', e => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = ev => {
-      const img = new Image();
-      img.onload = () => {
-        bgImg = img;
-        // キャンバスサイズを背景画像に合わせる
-        els.cv.width = img.width;
-        els.cv.height = img.height;
-        render();
-      };
-      img.src = ev.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
 
   function getFontFamily() {
     if (els.fontFamily.value === 'serif') {
@@ -284,7 +272,7 @@
     ctx.clearRect(0, 0, cv.width, cv.height);
 
     // 背景
-    if (bgImg) {
+    if (bgImg && bgImg.complete) {
       ctx.drawImage(bgImg, 0, 0, cv.width, cv.height);
     } else {
       ctx.fillStyle = "#7a1010";
@@ -380,7 +368,7 @@
     a.click();
   });
 
-  // 初期描画
+  // 初期描画（背景読み込み前は赤ベタ＋テキスト、読み込み後に自動で再描画）
   window.onload = render;
 </script>
 </body>
