@@ -123,7 +123,7 @@
         <option value="background.png">外交部（background.png）</option>
         <option value="background2.png">国防部（background2.png）</option>
       </select>
-      <div class="muted">root に置いた 2 種類の背景を切り替え</div>
+      // <div class="muted">root に置いた 2 種類の背景を切り替え</div>
     </div>
     
     <div class="field">
@@ -134,7 +134,7 @@
     <!-- 選択部分を金色にするボタン -->
     <div class="field">
       <button class="btn" id="highlightGoldBtn" type="button">
-        選択部分を金色（#D8AE5C）にする
+        選択部分を金色にする
       </button>
       <div class="muted">
         テキスト内で範囲選択してから押すと、その部分だけ金色で描画されます。
@@ -203,7 +203,8 @@
 
     <div style="margin-top:10px;">
       <button class="btn" id="renderBtn">再描画</button>
-      <button class="btn primary" id="saveBtn">PNGとして保存</button>
+      <button class="btn primary" id="saveBtn">JPGとして保存</button>
+      <div class="muted">右クリックで保存したほうが早いかも</div>
     </div>
   </aside>
 
@@ -212,7 +213,7 @@
     <div class="canvas-wrap">
       <canvas id="cv"></canvas>
     </div>
-    <footer>背景画像 background.png / background2.png を使用中。</footer>
+    // <footer>背景画像 background.png / background2.png を使用中。</footer>
   </main>
 </div>
 
@@ -497,3 +498,4 @@
 </script>
 </body>
 </html>
+
