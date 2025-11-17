@@ -228,6 +228,7 @@ function initializeDOMElements() {
     marginX: document.getElementById('marginX'),
     startY: document.getElementById('startY'),
     textColor: document.getElementById('textColor'),
+    highlightColor: document.getElementById('highlightColor'),
     shadowBlur: document.getElementById('shadowBlur'),
     fontFamily: document.getElementById('fontFamily'),
     quoteMode: document.getElementById('quoteMode'),
@@ -548,7 +549,8 @@ function drawMainText(ctx, width, height) {
   
   // 一時的にフォントを設定してトークンを解析
   ctx.font = `700 ${baseFontSize}px ${fontFamily}`;
-  const tokens = parseTokens(raw, baseColor, HIGHLIGHT_COLOR);
+  const highlightColor = els.highlightColor ? els.highlightColor.value : HIGHLIGHT_COLOR;
+  const tokens = parseTokens(raw, baseColor, highlightColor);
   
   // 最適なフォントサイズを計算
   const { fontSize, lines } = calculateOptimalFontSize(
@@ -717,7 +719,7 @@ function closeSettingsPanel() {
 function setupEventListeners() {
   const renderTriggerIds = [
     "text", "fontSize", "lineHeight", "marginX", "startY",
-    "textColor", "shadowBlur", "fontFamily", "quoteMode",
+    "textColor", "highlightColor", "shadowBlur", "fontFamily", "quoteMode",
     "footerText", "footerSize", "flag1", "flag2"
   ];
 

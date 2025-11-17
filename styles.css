@@ -105,6 +105,20 @@ header {
   flex: 1;
 }
 
+/* Color picker group - two color pickers close together */
+.color-picker-group {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+  align-items: flex-end;
+}
+
+.color-picker-group > .field {
+  flex: 0 1 auto;
+  min-width: 0;
+  margin-bottom: 10px;
+}
+
 .muted {
   color: #9ca3af;
   font-size: 11px;

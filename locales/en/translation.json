@@ -22,6 +22,7 @@
   "marginX": "Left/Right Margin (%)",
   "startY": "Start Position from Top (%)",
   "textColor": "Text Color",
+  "highlightColor": "Highlight",
   "shadowBlur": "Shadow Blur (px)",
   "font": "Font",
   "fontSerif": "Serif (Noto Serif JP)",

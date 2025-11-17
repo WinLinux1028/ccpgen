@@ -22,6 +22,7 @@
   "marginX": "좌우 여백(%)",
   "startY": "상단에서 시작 위치(%)",
   "textColor": "텍스트 색상",
+  "highlightColor": "강조 색상",
   "shadowBlur": "그림자(흐림 px)",
   "font": "글꼴",
   "fontSerif": "명조체 스타일 (Noto Serif JP)",
