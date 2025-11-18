@@ -22,6 +22,7 @@
   "marginX": "左右マージン(%)",
   "startY": "上からの開始位置(%)",
   "textColor": "テキスト色",
+  "highlightColor": "強調色",
   "shadowBlur": "影(ぼかし px)",
   "font": "フォント",
   "fontSerif": "明朝体風 (Noto Serif JP)",

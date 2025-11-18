@@ -22,6 +22,7 @@
   "marginX": "左右邊距(%)",
   "startY": "從上方開始位置(%)",
   "textColor": "文字顏色",
+  "highlightColor": "強調顏色",
   "shadowBlur": "陰影模糊(px)",
   "font": "字體",
   "fontSerif": "明體風格 (Noto Serif JP)",
